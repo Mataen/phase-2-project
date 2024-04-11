@@ -1,0 +1,81 @@
+Student names:
+  Wachuka Kinyanjui
+  Joseph Karumba
+  Daphine Lucas
+  Winny Chemusian
+  Wambui Githinji
+  Allan Mataen
+S/N: DSF-PT-06
+TITLE:PHASE 2 PROJECT
+
+REPOSITORY NAME: DSC-WACHUKA-PHASE-1-PROJECT
+REPOSITORY ADDRESS:https://github.com/Wachuka123/DSC-WACHUKA-PHASE-1-PROJECT
+REPOSITORY PURPOSE:Hosting my code for easier access and Portfolio buildup for my future career prospects.
+
+PROJECT PURPOSE:Our objective is to analyze a comprehensive dataset containing various attributes of properties and their corresponding prices to identify the primary drivers impacting housing prices. 
+
+CONTENTS:
+1.The README.md file
+2.The Jupyter Notebook
+3.Powerpoint Presentation
+4.Datasets under analysis
+
+# Business Understanding
+The selling price of a home is a critical factor in the real estate market, as it directly influences the financial outcome for both buyers and sellers. For homeowners, the selling price represents the return on their investment and can significantly impact their financial well-being. Potential buyers, on the other hand, rely on the selling price to make informed decisions about purchasing a property within their budget and assessing its value relative to similar properties in the market.
+House price is influenced by a multitude of factors, which can be broadly categorized into three main categories: property-specific factors, market factors, and external factors. Property-specific factors encompass attributes such as location, size, condition, amenities, architectural style, and age of the property. Market factors include supply and demand dynamics, interest rates, mortgage availability, and prevailing economic conditions. External factors can range from neighborhood characteristics, such as school quality and crime rates, to broader influences like government policies, infrastructure development, and demographic trends.
+Understanding the factors that influence the selling price of residential properties is of paramount importance to various stakeholders involved in the real estate industry. Real estate agents need this knowledge to provide accurate pricing recommendations and effective marketing strategies for their clients. Homeowners can benefit from understanding these factors to make informed decisions when pricing their properties. Investors and developers can leverage this knowledge to identify promising investment opportunities and maximize their returns. 
+## Problem Statement
+The real estate agency faces a significant challenge in providing comprehensive guidance to homeowners regarding home renovations and their potential impact on the estimated value of their properties. Given the intricate nature of the real estate market and varying trends in buyer preferences, there is a pressing need to develop a systematic approach to assess the potential increase in property value resulting from specific renovation projects. Additionally, determining the optimal balance between renovation costs and potential value appreciation poses a critical dilemma for homeowners seeking to maximize their investment returns. Thus, the primary objective of this project is to devise a robust framework or tool that enables the agency to offer tailored advice to homeowners, elucidating the potential financial benefits of various renovation options and empowering them to make informed decisions about enhancing their property value effectively.
+###Objectives
+1. To understand factors that affect price of a house
+2. To develop a model that can predict housing price based on various features. 
+3. To make recommendations on how home owners can optimize selling price of a house
+
+
+
+ ## Modelling 
+Baseline model is with variable with the highest correlation with price which was sqft_living
+ ## Model evaluation approach 
+Adjusted R-squared to show variation explained
+Durbin-Watson test to detect autocorrelation in residuals, ensuring the validity of regression analysis. 
+Durbin-Watson test value between 1.5 and 2.5 indicates no significant autocorrelation 
+##  Model comparison approach 
+Adjusted R-squared to show variation explained. Higher Adjusted R-squared indicates better model
+AIC (Akaike Information Criterion) and BIC (Bayesian Information Criterion) to compare goodness-of-fit and complexity of the models. Lower AIC and BIC values indicate a better model 
+## Baseline model interpretation
+With an F-statistic p-value below 0.05, the overall model is statistically significant.The results show that sqft_living explains 41.8% variation in price of houses.The model coefficients (const and sqft_living) are both statistically significant, with t-statistic p-values below 0.05.For 0 sqft_living, the estimated price is estimated to be -43490. An increase of 1 square foot in the living area leads to a price increase of approximately $283.4564.
+ for the bathroom model, the F-statistic p-value below 0.05, the overall model is statistically significant.The results show that bathrooms explains 29% variation in price of houses.The model coefficients (const and sqft_living) are both statistically significant, with t-statistic p-values below 0.05.For 0 sqft_living, the estimated price is estimated to be 12.2218. An increase of 1 square foot in the living area leads to a price increase of approximately $0.3935.
+
+## Evaluating Model Performance using Durbin-Watson.
+The sqft_living model has a Durbin-Watson of 1.986 which shows that there is no significant autocorrelation.
+The bathrooms model has a Durbin-Watson of 1.968 which shows that there is no significant autocorrelation.
+
+## Second Model Interpretation( Multiple_Linear_Regression )
+The first regression model shows that approximately 59.4% of the variability in house prices can be explained by the independent variables included in the model. These variables include features such as bedrooms, bathrooms, square footage, waterfront status, and others.
+
+The second regression model with an R-squared of 0.594 indicates that approximately 59.4% of the variability in house prices can be explained by the included independent variables. These variables, such as bedrooms, bathrooms, square footage, and others, collectively contribute to predicting house prices, as evidenced by significant coefficients and low p-values.
+
+The third regression model ( which has variables with the highest correlation with price ) has an R-squared of 0.511 suggests that approximately 51.1% of the variability in house prices can be explained by the included independent variables.
+
+## polynomial regression
+The first polynomial regression with a degree of 2 on the dataset, scaling the features and splitting the data into train and test sets, resulting in a root mean squared error (RMSE) of approximately 0.35 when predicting the target variable on the test data.
+
+The second polynomial regression with a degree of 3 on the dataset, achieving an RMSE of approximately 0.34 as the evaluation metric.
+
+
+The third polynomial regression with a degree of 4 on the dataset, achieving an RMSE of approximately 0.34 when predicting the target variable on the scaled test data.
+
+## Conclusions
+Based on our analysis, we have uncovered several significant insights into the factors influencing housing prices. Firstly, features such as waterfront views, larger living spaces (both above ground and in the basement), and certain construction attributes positively impact housing prices. Conversely, newer properties tend to command lower prices compared to older ones, and factors like the number of bedrooms and lot size are associated with decreased prices.
+## Limitations
+The dataset may lack additional property-specific characteristics that could provide further insights into housing prices.
+
+Multicollinearity: The existence of correlated predictors within the dataset can result in multicollinearity problems, complicating the accurate interpretation of the individual impacts of each feature.
+
+Overfitting: Polynomial regression models are prone to overfitting. This is where the model tightly conforms to the training data but may struggle to perform well on new, unseen data. Overall the model was the best fit model for this prediction
+## Recommendations
+Further Data Collection: the dataset could be expanded to include additional property-specific characteristics that may influence housing prices, such as proximity to amenities and neighborhood demographics, and property condition. This can provide a more comprehensive understanding of the housing market dynamics.
+
+Guard Against Overfitting: To mitigate the risk of overfitting in polynomial regression models, using techniques such as cross-validation, regularization could be considered, or reducing the complexity of the model by selecting an appropriate degree for the polynomial features.
+
+Continuous Model Monitoring: Continuously monitoring the model's performance and validity over time as new data becomes available or market conditions change. Regular updates and recalibration may be necessary to ensure the model remains relevant and accurate.
